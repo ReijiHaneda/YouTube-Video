@@ -51,9 +51,10 @@ body {
     height: 5em;
     border: none;
     color: transparent ;
-    border-radius: 30px;
-    box-shadow: gray 20px 40px 30px;
+    border-radius: 15px;
+    box-shadow: gray 10px 20px 30px;
     border: black 1px solid;
+    margin-top: 10px;
 }
 .ge{
     background:url('../img/google.png') no-repeat;
@@ -62,9 +63,9 @@ body {
     height: 5em;
     border:none;
     color: transparent ;
-    box-shadow: gray 20px 40px 30px;
+    box-shadow: gray 10px 20px 30px;
     border: black 1px solid;
-    border-radius: 30px;
+    border-radius: 15px;
     margin: 1em;
 }
 .popup {
@@ -93,12 +94,17 @@ body {
 .popup.show .popup-content {
     transform: translateX(0); /* Slide in from right */
 }
-.textt{
-    font-weight: bold;
-    padding-bottom:-1em ;
-}
+
+
 .ask{
     margin-bottom: 3px;
     padding-bottom: 3px;
     color:#0f36b2;
 }
+.ytlogo{
+     height: 2em;
+     position:center;
+     top:5px;
+     padding-bottom: 1em;
+     padding-top: -1em;
+     }

