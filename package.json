@@ -16,7 +16,8 @@
     "express": "^4.19.2",
     "firebase-tools": "^13.11.4",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.3"
+    "mongoose": "^8.4.3",
+    "nodemailer": "^6.9.14"
   },
   "description": ""
 }
